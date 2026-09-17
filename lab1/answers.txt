@@ -29,4 +29,5 @@ Assembly: 0.524 ms
 C without -O3: 1.806 ms
 C with -O3: 0.122 ms
 
-After adding -O3, the C implementation took approximately 0.122 ms on average, while the assembly implementation took approximately 0.524 ms. Therefore, the optimized C implementation was about 4.29 times faster than the provided assembly. Without -O3, the C implementation took approximately 1.806 ms, so adding -O3 made the C implementation about 14.78 times faster.
+After adding -O3, the C implementation took about 0.122 ms on average, while the assembly
+implementation took about 0.524 ms. Therefore, the -O3 C implementation was about 4.29 times faster than the provided assembly. Without -O3, the C implementation took about 1.806 ms, so adding -O3 made the C implementation about 14.78 times faster.
