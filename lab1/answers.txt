@@ -1,0 +1,32 @@
+1.) What were the four commands you used to assemble, compile, link, and run in the "Compiling and Assembling" section?
+
+The four commands were:
+//to create array_sum.o
+gcc -c -march=haswell array_sum.S -o array_sum.o
+
+//to create array_sum_speed.o
+gcc -Wall -Wpedantic -std=c17 -march=haswell -c array_sum_speed.c -o array_sum_speed.o
+
+//to combine array_sum.o and array_sum_speed.o into array_sum_speed
+gcc array_sum_speed.o array_sum.o -o array_sum_speed
+
+//to run array_sum_speed
+./array_sum_speed 1000000
+
+
+2.) What was the first command you used to compile array_sum.c?
+The command is: gcc -Wall -Wpedantic -std=c17 -march=haswell -c array_sum.c -o array_sum.o
+
+How much faster/slower was your C implementation compared to the provided assembly?
+My average for the first version with array_sum.S was about 0.524 ms
+My average for the second version with array_sum.c was about 1.806 ms
+1.806/0.524 = 3.45
+So the C version was about 3.45x slower than the provided assembly.
+
+
+3.) How did the speed of the C and assembly implementations of array_sum compare after you added -O3 to the compilation command? How did C speed compare with and without -O3?
+Assembly: 0.524 ms
+C without -O3: 1.806 ms
+C with -O3: 0.122 ms
+
+After adding -O3, the C implementation took approximately 0.122 ms on average, while the assembly implementation took approximately 0.524 ms. Therefore, the optimized C implementation was about 4.29 times faster than the provided assembly. Without -O3, the C implementation took approximately 1.806 ms, so adding -O3 made the C implementation about 14.78 times faster.
