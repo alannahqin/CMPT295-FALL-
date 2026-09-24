@@ -14,7 +14,7 @@ loop_top:
     add %rcx, %rbx
     add $2, %rcx
     cmp %rdi, %rbx
-    jle loop_top
+    jle loop_top  #modified jl to jle
 
     mov %rbx, %rax
     pop %rbx
