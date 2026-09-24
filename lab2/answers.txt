@@ -1,0 +1,15 @@
+//questions
+
+1)
+In a few words, describe the value returned by provided do_something function. (This should be a
+natural sentence that describes the result, not a mechanical description of what the code does, and not "64" because that's what's returned for a specific argument: you should describe what the function returns in general).
+
+ANS: do_something returns the smallest perfect square that is greater than or equal to the argument.
+
+
+
+2)
+In your calculate function, why did you choose a preserved/non-preserved register for the different partial results?
+
+ANSW:I used "%rbx" as a preserved register for `x` because I needed it to stay the same after
+calling "f". I used "%r10" as a non-preserved register for temporary values because I only needed them for a short time, so I saved them on the stack when I needed to keep them across a function call.
