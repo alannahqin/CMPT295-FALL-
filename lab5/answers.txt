@@ -1,0 +1,38 @@
+
+1. What was your test setup?
+I tested the program on an Victus laptop with a 13th Gen Intel Core i5-13420H processor.
+
+2. How much faster was each #2 implementation?
+For polynomial, polynomial2 took about 26.2% less
+time than polynomial1. Using fewer multiplications
+made it faster.
+
+For is_odd, is_odd2 took about 55.6% less time
+than is_odd1. Bitwise AND was much faster than
+division.
+
+For multiplication, mul2 was actually slower
+than mul1. It took about 119.1% more time, so
+using mul was faster on my system.
+
+
+3. How did the C implementations compare?
+
+For polynomial3, the C implementation was
+slightly faster than polynomial2.
+
+For is_odd3, the C implementation was almost
+the same speed as is_odd2.
+
+For mul3, the C implementation was also almost
+the same speed as mul2, but slower than mul1.
+
+This shows that the compiler can optimize C code, and the C versions
+were sometimes as fast as the assembly versions.
+
+
+4. Optional
+
+I only tested on one processor, so I cannot
+compare different CPUs. On my system,
+mul1 was faster than mul2.
