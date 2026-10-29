@@ -1,0 +1,29 @@
+
+1. What commands did you use to compile/assemble and run your code?
+
+gcc -c lab7.S -o lab7.o
+gcc tests.c lab7.o -o tests
+./tests
+
+gcc -O2 timing.c lab7.c lab7.o -o timing
+./timing
+
+
+2. How did the running times compare for the various dot product implementations?
+
+These were the results from the test run:
+
+dot:          0.62 ns/elt
+dot_c:        0.62 ns/elt
+dot_struct:   0.76 ns/elt
+dot_struct_c: 0.74 ns/elt
+
+The normal dot and dot_c had the same running time
+at 0.62 ns/elt, so they were the fastest.
+
+The struct versions were a little slower. dot_struct
+took 0.76 ns/elt and dot_struct_c took 0.74 ns/elt.
+
+Overall, the normal array versions were faster than
+the struct versions. The C and assembly versions
+were pretty close in speed for me.
