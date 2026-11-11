@@ -1,0 +1,17 @@
+1. I promise I got a "All heap blocks were freed".
+
+2. I think most of the time was spent on the loops and comparisons.
+Swapping also took a good amount of time, while branch mispredictions added some extra overhead.
+
+3. I tested bubble sort with different array sizes using the time command.
+The running time increased a lot more as the array got bigger.
+
+4. For the random array, the branch misprediction rate was much higher because the comparisons were harder to predict.
+For the already sorted array, it was very low since the condition mostly stayed the same.
+
+5. The number of cache misses increased as the 2D array height got larger.
+The increase was more noticeable once the data started taking up more cache space.
+
+6. Cachegrind showed a similar increase in cache misses as the height got larger.
+This makes sense because the program has to access more memory,
+and not all the data can stay in the cache.
