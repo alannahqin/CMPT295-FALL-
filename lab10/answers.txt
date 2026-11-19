@@ -1,0 +1,40 @@
+1. Dot product
+
+With -O3, I got:
+dot_double_c: 44.9 ms
+dot_double:   40.6 ms
+dot_single_c: 28.1 ms
+dot_single:   32.1 ms
+
+The double assembly version was a bit faster than C, but for single
+precision, C was faster. Single precision was faster overall compared
+to double precision. I think this is because floats use less memory
+than doubles, and the compiler can also optimize the C code better
+than my assembly loop.
+
+2. Polynomial evaluation
+
+With -O3, I got:
+map_poly_double_c1: 63.0 ms
+map_poly_double_c2: 63.5 ms
+map_poly_double:    59.3 ms
+map_poly_single_c:  30.1 ms
+map_poly_single:    34.6 ms
+
+The double assembly version was a little faster than both C versions.
+For single precision, the C version was faster than assembly.
+The single precision versions were also a lot faster than the double
+precision ones. This could be because floats are smaller and the
+compiler is able to optimize the calculations better.
+
+3. x87 sine vs C sine
+
+sin_x87:    106.51 ms
+sin_stdlib: 31.26 ms
+
+The x87 version was about 3.41 times slower than the C version.
+The maximum difference was around 1.11e-16, so the results were
+basically the same.
+
+I think the C version is faster because the math library has a more
+optimized way of calculating sine, while x87 uses an older instruction.
