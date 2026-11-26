@@ -1,0 +1,51 @@
+1. Relative to your assembly code last week, how much did the
+"dot product" and "map polynomial" implementations speed up
+when using the vector instructions?
+
+Dot product:
+Double: 61.1 / 14.3 = 4.27x
+Single: 12.9 / 6.5 = 1.98x
+
+Map polynomial:
+Double: 26.8 / 27.7 = 0.97x
+Single: 17.1 / 12.2 = 1.40x
+
+The dot product had a much better speedup compared to map
+polynomial. I noticed that the double precision polynomial
+was actually a bit slower with vector instructions. This
+could be because of memory access or differences in timing.
+
+
+2. On the two problems, what was the relative speedup of
+vectorized implementations on single-precision floating
+point values, over double-precision?
+
+Assembly:
+Dot product: 14.3 / 6.5 = 2.20x
+Map polynomial: 27.7 / 12.2 = 2.27x
+
+Vectorclass:
+Dot product: 13.2 / 6.5 = 2.03x
+Map polynomial: 23.7 / 11.5 = 2.06x
+
+For both problems, single precision was around twice as
+fast as double precision. This makes sense since a ymm
+register can fit 8 floats instead of 4 doubles.
+
+
+3. When timing your assembly (and vectorclass) implementations
+and the implementations created by the compiler, you likely
+saw that for the "dot product" problem, the C implementation
+performed more like the non-vectorized assembly. For the
+"map polynomial" problem, the C implementation performed
+more like the vectorized assembly. Why was the compiler
+able to vectorize one but not the other?
+
+The dot product keeps adding to a running sum. The order
+of the additions matters because changing it can give a
+slightly different result due to floating point rounding.
+
+With map polynomial, each element is calculated separately
+and doesn't rely on the result of the previous iteration.
+Because of this, the compiler can calculate multiple
+elements at once without affecting the results.
